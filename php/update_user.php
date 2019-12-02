@@ -13,11 +13,8 @@ $email = $_POST['email'];
 $comments = $_POST['comments'];
 $group_id = $_POST['group_id'];
 
-const servername = "119.23.106.49";
-const dbname = "address_book";
-const username = "root";
-const password = "mysql1998";
-$conn = new PDO("mysql:host=" . servername . ";dbname=" . dbname, username, password);
+include "MysqlUtils.php";
+$conn = MysqlUtils::getConn();
 $statement = $conn->prepare("update user set name = :name,company=:company,email=:email,comments=:comments,group_id=:group_id where uid = :uid");
 $statement->execute(array(':uid' => $uid,':name'=>$name,":company"=>$company,':email'=>$email,':comments'=>$comments,':group_id'=>$group_id));
 
@@ -34,5 +31,6 @@ for ($n=1;$n<=$sum;$n++){
         $statement->execute();
     }
 }
+$conn = null;
 ?>
 <h5 style="color:cadetblue;">更新成功！</h5>

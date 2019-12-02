@@ -1,15 +1,16 @@
 <?php
-namespace mysql;
+
 
 class MysqlUtils {
-    const servername = "localhost";
-    const username = "root";
-    const password = "root";
+    static $servername = "localhost";
+    static $dbname = "address_book";
+    static $username = "root";
+    static $password = "root";
 
-    public static function getConn($dbname) {
+    public static function getConn() {
         try {
-            $conn = new PDO("mysql:host=".self::$servername.";dbname=address_book", self::$username, self::$password);
-            echo "连接成功";
+            $conn = new PDO("mysql:host=".self::$servername.";dbname=".self::$dbname, self::$username, self::$password);
+            $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
             return $conn;
         } catch (PDOException $e) {
             echo $e->getMessage();
