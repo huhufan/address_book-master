@@ -1,15 +1,12 @@
-<div id="head"></div>
+        <div id="head"></div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
     $("#head").load("../html/head.html");
 </script>
 <?php
-const servername = "119.23.106.49";
-const dbname = "address_book";
-const username = "root";
-const password = "mysql1998";
-$conn = new PDO("mysql:host=" . servername . ";dbname=" . dbname, username, password);
+include "MysqlUtils.php";
+$conn = MysqlUtils::getConn();
 $conn->beginTransaction();
 $statement = $conn->prepare("select * from user where uid = :uid");
 $statement->execute(array(':uid' => $_GET['uid']));
@@ -53,9 +50,11 @@ $allGroup = $statement2->fetchAll(PDO::FETCH_ASSOC);
                                                          value="<?php echo $phone['phone_number'] ?>">
                 <input type="button" pid="<?php echo $phone['pid'] ?>" value="-" onclick="del_input(this)"></div>
             <?php
-        } ?>
+        }
+        $conn = null;
+        ?>
         <input id="hid" type="hidden" value="0" style="margin-left: 36px"><br>
-        <input style="margin-left: 50px" type="submit" value="提交" id="submit">
+        <input style="margin-left: 50px" type="submit" value="提交修改" id="submit"><button style="border: 1px black solid;height: 20px;color: black" ><a style="text-decoration: none;" href="/address_book-master/php/delete_user.php?uid=<?php echo $user[0]['uid'] ?>">删除此联系人</a></button>
     </form>
 </div>
 <script>
@@ -64,7 +63,6 @@ $allGroup = $statement2->fetchAll(PDO::FETCH_ASSOC);
 
     function del_input(e) {
         id = e.getAttribute('pid');
-        alert(id);
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function()
         {
@@ -86,19 +84,6 @@ $allGroup = $statement2->fetchAll(PDO::FETCH_ASSOC);
         $("#hid").after('<input name="' + curName + '" style="margin-left: 40px" type="text"><br>');
     }
 
-    // $('#submit').click(function () {
-    //     var data = $('form').serializeArray();
-    //     $.ajax({
-    //         url:'/address_book-master/php/update_user.php',
-    //         type:'post',
-    //         dataType:'json',
-    //         data:"{}",
-    //         success:function (result) {
-    //             alert("ddd");
-    //         }
-    //     });
-    //     alert("sdad");
-    //
-    // })
+
 </script>
 <?php

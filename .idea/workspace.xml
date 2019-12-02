@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2976fa18-c9b9-41da-a766-e0d55550a191" name="Default Changelist" comment="" />
+    <list default="true" id="2976fa18-c9b9-41da-a766-e0d55550a191" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/add_user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/s.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/show_group.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/show_user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/MysqlUtils.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/MysqlUtils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/add_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/add_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/delete_phone.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/delete_phone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/show_group.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/show_group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/show_group_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/show_group_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/show_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/show_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/to_add_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/to_add_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/update_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/update_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/user_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/user_details.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +43,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="e9e3f91c-1547-4d57-95c9-1aa8081dca9f" name="localhost-80" port="8081" />
+    </servers>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1" />
   <component name="ProjectId" id="1Tx2w0hCRtVC9ieiiy4kH2QvK30" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sql" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sql" />
+      <recent name="$PROJECT_DIR$/php" />
+      <recent name="$PROJECT_DIR$/testphp" />
       <recent name="D:\phpstorm\projects\address_book-master\html" />
     </key>
   </component>
@@ -51,29 +80,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.head.html">
-    <configuration name="head.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/address_book-master/html/head.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="main.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/address_book-master/html/main.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="to_add_user.php (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/address_book-master/php/to_add_user.php" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="add_user.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/php/add_user.php">
+  <component name="RunManager" selected="PHP Built-in Web Server.address_book">
+    <configuration name="address_book" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/php/" port="8081">
       <method v="2" />
     </configuration>
     <configuration name="test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/php/test.php">
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="PHP Built-in Web Server.address_book" />
+      <item itemvalue="PHP Script.test.php" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.head.html" />
         <item itemvalue="PHP Script.test.php" />
-        <item itemvalue="JavaScript Debug.main.html" />
-        <item itemvalue="JavaScript Debug.to_add_user.php (1)" />
-        <item itemvalue="PHP Script.add_user.php" />
       </list>
     </recent_temporary>
   </component>
@@ -89,6 +109,8 @@
       <updated>1574387660509</updated>
       <workItem from="1574387661584" duration="25268000" />
       <workItem from="1574515139178" duration="43527000" />
+      <workItem from="1574646872760" duration="36428000" />
+      <workItem from="1574906649795" duration="575000" />
     </task>
     <servers />
   </component>
@@ -107,5 +129,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/php/add_group.php</url>
+          <line>10</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/php/test.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

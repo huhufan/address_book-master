@@ -1,21 +1,31 @@
+<div id="head"></div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $("#head").load("/address_book-master/html/head.html");
+</script>
+
 <?php
-const servername = "119.23.106.49";
-const dbname = "address_book";
-const username = "root";
-const password = "mysql1998";
-$conn = new PDO("mysql:host=" . servername . ";dbname=" . dbname, username, password);
-$conn->beginTransaction();
+include "MysqlUtils.php";
+$conn = MysqlUtils::getConn();
 $statement = $conn->prepare("select * from `group`");
 $statement->execute();
 $groups = $statement->fetchAll(PDO::FETCH_ASSOC);
+$conn = null;
 
 
 ?>
-
-<div style="width: 300px">
+<style>
+    a{
+        color:#575356;
+        font-size: 12px;
+        text-decoration: none;
+        }
+</style>
+<button><a href="/address_book-master/php/to_add_group.php">添加群组</a></button>
+<div style="width: 300px;">
     <?php
     foreach ($groups as $g){
-        ?><a href="/address_book-master/php/show_group_user.php?gid=<?php echo $g['gid'] ?>"> <div style="width: 100%;background-color: #cefee7; margin-top: 1px" ><?php echo $g['gname'] ?></div></a><?php
+        ?><a href="/address_book-master/php/show_group_user.php?gid=<?php echo $g['gid'] ?>&gname=<?php echo $g['gname'] ?>"> <div style="width: 100%;background-color: #fef9f4; margin-top: 2px" ><?php echo $g['gname'] ?></div></a><?php
     }
     ?>
 </div>

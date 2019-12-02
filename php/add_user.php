@@ -1,11 +1,8 @@
 <?php
 $name=$company=$email=$group_id=$comments="";
 
-const servername = "119.23.106.49";
-const dbname = "address_book";
-const username = "root";
-const password = "mysql1998";
-$conn = new PDO("mysql:host=" . servername . ";dbname=" . dbname, username, password);
+include "MysqlUtils.php";
+$conn = MysqlUtils::getConn();
 $conn->beginTransaction();
 $statement = $conn->prepare("insert into user (name,company,email,group_id,comments) values (:name,:company,:email,:group_id,:comments)");
 
@@ -31,9 +28,8 @@ for ($n=1;$n<=$sum;$n++){
       $statement->execute();
   }
 }
-
-
 $conn->commit();
+$conn = null;
 ?>
 <div id="head"></div>
 <div id="user_details" style="color: darkcyan">添加成功！</div>

@@ -1,12 +1,15 @@
+<div id="head"></div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $("#head").load("/address_book-master/html/head.html");
+</script>
 <?php
-const servername = "119.23.106.49";
-const dbname = "address_book";
-const username = "root";
-const password = "mysql1998";
-$conn = new PDO("mysql:host=" . servername . ";dbname=" . dbname, username, password);
+include "MysqlUtils.php";
+$conn = MysqlUtils::getConn();
 $statement = $conn->prepare("select * from `group`");
 $statement->execute();
 $all = $statement->fetchAll(PDO::FETCH_ASSOC);
+$conn = null;
 ?>
 <html lang="en">
 <head>
@@ -24,9 +27,9 @@ $all = $statement->fetchAll(PDO::FETCH_ASSOC);
 <div>
     <form action="/address_book-master/php/add_user.php" method="post">
         <input type="hidden" name="number" value="1" id="number">
-        <span>名字:</span><input type="text" name="name"> <br>
+        <span>名字:</span><input type="text" name="name" required placeholder="必填项"> <br>
         <span>公司:</span><input type="text" name="company"> <br>
-        <span>邮箱:</span><input type="text" name="email"> <br>
+        <span>邮箱:</span><input type="email" name="email"> <br>
         <span>群组:</span><select name="group_id">
             <?php
             foreach ($all as $a) {
@@ -37,7 +40,7 @@ $all = $statement->fetchAll(PDO::FETCH_ASSOC);
             ?>
         </select><br>
         <span>备注:</span><input type="text" name="comments"> <br>
-        <span>电话:</span><input type="text" name="phone1"><input type="button" id="p" value="+"
+        <span>电话:</span><input type="number" name="phone1" maxlength="20"  placeholder="0-20位的数字"><input type="button" id="p" value="+"
                                                                 onclick="add_input()"><br>
         <input id="hid" type="hidden" style="margin-left: 36px"><br>
         <input style="margin-left: 50px" type="submit" value="提交" id="submit">
@@ -51,7 +54,7 @@ $all = $statement->fetchAll(PDO::FETCH_ASSOC);
         num++;
         $("input[type=hidden]").val(num);
         var curName = name + num;
-        $("#hid").after('<input name="' + curName + '" style="margin-left: 36px" type="text"><br>');
+        $("#hid").after('<input name="' + curName + '" style="margin-left: 36px" type="number" placeholder="0-20位的数字" maxlength="20"><br>');
     }
 </script>
 </html>

@@ -1,11 +1,9 @@
 <?php
 $pid = $_GET['pid'];
-const servername = "119.23.106.49";
-const dbname = "address_book";
-const username = "root";
-const password = "mysql1998";
-$conn = new PDO("mysql:host=" . servername . ";dbname=" . dbname, username, password);
+include "MysqlUtils.php";
+$conn = MysqlUtils::getConn();
 $statement = $conn->prepare("delete from phone where pid = :pid");
 $statement->execute(array(':pid' => $pid));
+$conn = null;
 echo "删除成功";
 

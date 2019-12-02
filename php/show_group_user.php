@@ -1,13 +1,12 @@
 <?php
 $gid = $_GET['gid'];
+$gname = $_GET['gname'];
 
-const servername = "119.23.106.49";
-const dbname = "address_book";
-const username = "root";
-const password = "mysql1998";
-$conn = new PDO("mysql:host=" . servername . ";dbname=" . dbname, username, password);
+
+include "MysqlUtils.php";
+$conn = MysqlUtils::getConn();
 $conn->beginTransaction();
-$statement = $conn->prepare("select uid , name from user where group_id = :gid");
+$statement = $conn->prepare("select uid , name from user where group_id = :gid order by convert (name using gbk) collate gbk_chinese_ci");
 $statement->bindParam(":gid",$gid);
 $statement->execute();
 $groupUser = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -15,18 +14,23 @@ $groupUser = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <style>
-    td {
-        border-top: 1px solid darkcyan;
-    }
 
+    tr{
+        background-color: #fef9f4;
+    }
     a {
-        color: black;
-        font-size: 15px;
+        color:#575356;
+        font-size: 12px;
         text-decoration: none;
     }
 </style>
-<table style="padding-top: 20px;border: 1px solid darkcyan;width: 300px; text-align: left">
-    <button><a href="/address_book-master/html/add_user.html">+</a></button>
+<div id="head"></div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $("#head").load("/address_book-master/html/head.html");
+</script>
+<table style="padding-top: 20px;width: 300px; text-align: left">
+    <div style="width: 300px"><button style="float: left;"><?php echo $gname ?></button><button style="float: right;"><a href="/address_book-master/php/delete_group.php?gid=<?php echo $gid ?>">删除此群组</a></button></div>
     <?php
     foreach ($groupUser as $user) {
         ?>
@@ -37,11 +41,12 @@ $groupUser = $statement->fetchAll(PDO::FETCH_ASSOC);
         $statement2->execute(array(':uid' => $user['uid']));
         $allPhone = $statement2->fetchAll(PDO::FETCH_ASSOC);
         ?>
-        <td><select><?php foreach ($allPhone as $p) { ?>
+        <td><select style="float: right"><?php foreach ($allPhone as $p) { ?>
                     <option><?php echo $p['phone_number']; ?></option><?php
                 }
                 ?></select></td></tr><?php
     }
+    $conn = null;
     ?>
 </table>
 
